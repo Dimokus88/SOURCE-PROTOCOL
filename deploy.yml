@@ -1,0 +1,72 @@
+---
+version: "2.0"
+
+services:
+  app:
+    image: dimokus88/ubuntu:1.1
+    env:
+#1.Раздел часной информации, неделитесь даннмы из этого раздела!
+#1.Private information section, do not share data from this section!
+      - "my_root_password=" # Root password far a ssh connection. Пароль root для подключения по ssh.
+      - "MONIKER=" # Node name. Use "Akash" in moniker(for example:Dimokus_Akash) to help develop the project! Имя ноды. Используйте в моникере "Akash"(например:Dimokus_Akash) что бы помочь в развитии проекта!
+      - "LINK_KEY=" # link to the posted pirv-validator_key.json (direct download). It will also work from other Cosmos-based testnets.Ссылка на размещенный pirv-validator_key.json (прямое скачивание). Подойдет и от других тестнетов на базе Cosmos.
+#==================================================================
+#2.Раздел переменных для работы ноды
+#2.Section of variables for node operation"
+      - "binary=sourced"
+      - "vers=v1.0.0-2-ge06b810"
+      - "genesis=https://raw.githubusercontent.com/Source-Protocol-Cosmos/testnets/master/sourcechain-testnet/genesis.json"
+      - "folder=.source"
+      - "denom=usource"
+      - "chain=sourcechain-testnet"
+      - "gitrep=https://github.com/Source-Protocol-Cosmos/source.git"
+      - "gitfold=source"
+      - "SHIFT=4000"
+      - "PEER=6ca675f9d949d5c9afc8849adf7b39bc7fccf74f@164.92.98.17:26656"
+      - "SNAP_RPC=https://source.rpc.bccnodes.com:443"  
+    command:
+      - "bash"
+      - "-c"
+    args:
+      - 'curl -s https://raw.githubusercontent.com/Dimokus88/universe/main/main.sh | bash '
+    expose:
+      - port: 80
+        as: 80
+        to:
+          - global: true
+      - port: 22
+        as: 22
+        to:
+          - global: true
+      - port: 26656
+        as: 26656
+        to:
+          - global: true
+      - port: 26657
+        as: 26657
+        to:
+          - global: true
+        
+profiles:
+  compute:
+    app:
+      resources:
+        cpu:
+          units: 4.0
+        memory:
+          size: 6Gi
+        storage:
+          size: 200Gi
+        
+        
+  placement:
+    akash: 
+      pricing:
+        app:
+          denom: uakt
+          amount: 10000
+deployment:
+  app:
+    akash:
+      profile: app
+      count: 1 
