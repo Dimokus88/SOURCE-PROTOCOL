@@ -22,7 +22,7 @@ services:
       - "gitrep=https://github.com/Source-Protocol-Cosmos/source.git"
       - "gitfold=source"
       - "SHIFT=4000"
-      - "PEER=6ca675f9d949d5c9afc8849adf7b39bc7fccf74f@164.92.98.17:26656"
+      - "PEER=999251bb85f92bb824c60a7a78bc7b9fcbde9468@139.59.240.217:26656,6ca675f9d949d5c9afc8849adf7b39bc7fccf74f@164.92.98.17:26656"
       - "SNAP_RPC=https://source.rpc.bccnodes.com:443"  
     command:
       - "bash"
