@@ -13,22 +13,16 @@ services:
 #==================================================================
 #2.Раздел переменных для работы ноды
 #2.Section of variables for node operation"
-      - "binary=sourced"
-      - "vers=v1.0.0-2-ge06b810"
-      - "genesis=https://raw.githubusercontent.com/Source-Protocol-Cosmos/testnets/master/sourcechain-testnet/genesis.json"
-      - "folder=.source"
-      - "denom=usource"
-      - "chain=sourcechain-testnet"
       - "gitrep=https://github.com/Source-Protocol-Cosmos/source.git"
       - "gitfold=source"
       - "SHIFT=4000"
-      - "PEER=b958d18452ec5458323606d934906cc90d462203@194.233.93.124:26656,c891aa4d39db8eec9a9f38e1a6582c02a16a4209@142.93.36.221:26656,9d16b552697cdce3c8b4f23de53708533d99bc59@165.232.144.133:26656,70c36c06a5f564e0ce43d1c25dacf7cd0d6a82d9@85.114.142.242:26656,5ffbb9a8a9a47ebffc2cd1241380281bf944572e@188.34.195.244:26656,f268f469cd7fc88abcf5115a007ded1c2c912f1f@144.76.224.246:36656,7ccb6331c8f8aed3439fe2f88d01f8808564f9e2@164.92.98.14:26656,c749b47c438842d9874b515de130dfb11431360f@147.182.211.27:26656,b03e6ac74f2aee4fbfe4cd07c4e93033a9375a37@5.189.185.41:26656,a2ecb989361b5c3e557fd97d379f7b2011f75f6d@84.54.23.23:26656,379c6cb77e0b656b1db8af744e271fe94bce3767@75.119.151.202:26656,c4f75677b1b9411da8449f86fe9f070fa9382c22@144.91.83.54:26656,c293787dd1aeede1e1716196db4abb30d171710e@38.242.220.245:26656,994f41db482ed3d9b675f5f403dee38ffa006aaf@45.84.138.70:26656,dbba2131476082da8cdf6158931eeca72de6bfd3@62.171.181.47:26656"
-      - "SNAP_RPC=https://194.233.93.124:26657"  
+      - "SNAP_RPC=https://source.rpc.bccnodes.com:443"
+#====================================   
     command:
       - "bash"
       - "-c"
     args:
-      - 'curl -s https://raw.githubusercontent.com/Dimokus88/universe/main/main.sh | bash '
+      - 'curl -s https://raw.githubusercontent.com/Dimokus88/universe/main/alphatest/node.sh | bash '
     expose:
       - port: 80
         as: 80
@@ -46,7 +40,7 @@ services:
         as: 26657
         to:
           - global: true
-        
+       
 profiles:
   compute:
     app:
@@ -56,9 +50,9 @@ profiles:
         memory:
           size: 6Gi
         storage:
-          size: 200Gi
-        
-        
+          size: 100Gi
+
+         
   placement:
     akash: 
       pricing:
