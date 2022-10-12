@@ -82,13 +82,13 @@ $binary q bank balances $address
 You can delegate the remaining tokens to yourself, but leave 1,000,000 usource to pay for transaction gas:
 
 ```
-$binary tx staking delegate $valoper <amount>$denom --from $address --chain-id $chain --fees 555$denom -y
+$binary tx staking delegate $valoper <amount>$denom --from $address --chain-id $CHAIN --fees 555$DENOM -y
 ```
 
 Collect rewards:
 
 ```
-$binary tx distribution withdraw-rewards $valoper --from $address --fees 500$denom --commission --chain-id $chain -y
+$binary tx distribution withdraw-rewards $valoper --from $address --fees 500$DENOM --commission --chain-id $CHAIN -y
 ```
 Other commands for managing a node [can be found here](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/COMMAND.MD).
 
@@ -147,13 +147,13 @@ $binary q bank balances $address
 Можете делегировать на себя оставшиеся токены, но оставьте 1 000 000 usource для оплаты газа транзакций:
 
 ```
-$binary tx staking delegate $valoper <amount>$denom --from $address --chain-id $chain --fees 555$denom -y
+$binary tx staking delegate $valoper <amount>$denom --from $address --chain-id $CHAIN --fees 555$DENOM -y
 ```
 
 * Собрать награды:
 
 ```
-$binary tx distribution withdraw-rewards $valoper --from $address --fees 500$denom --commission --chain-id $chain -y
+$binary tx distribution withdraw-rewards $valoper --from $address --fees 500$DENOM --commission --chain-id $CHAIN -y
 ```
 Другие команды по управлению нодой [можете найти здесь](https://github.com/Dimokus88/guides/blob/main/Cosmos%20SDK/COMMAND.MD).
 
